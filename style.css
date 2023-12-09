@@ -1,0 +1,35 @@
+div{
+    border: 1px solid blue;
+    padding: 3px;
+    
+}
+
+#div1{
+    width: 1280px;
+    height: 400px;
+    
+}
+
+#div2{
+    /* width: 1200px; */
+    height: 390px;
+    padding: 5px;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    background-color: lightblue;
+    
+}
+
+#imagediv{
+    width: 1280px;
+    height: 400px;
+
+}
+
+img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+}
+
