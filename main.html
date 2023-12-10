@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h4>點擊產生區塊</h4>
+        <button id="textButton">添加文字</button>
+        <button id="imageButton">添加圖片</button>
+
+    </div>
+    <br>
+
+    <script>
+        //添加文字
+        var button1 = document.getElementById('textButton');
+        button1.addEventListener('click', function () {
+            
+
+            const firstDiv = document.createElement("div");
+            firstDiv.classList.add('container');
+            firstDiv.setAttribute('id', 'div1');
+
+
+            const button2 = document.createElement("button");
+            button2.textContent = '產生文字';
+            button2.setAttribute('id', 'button2');
+            
+            firstDiv.appendChild(button2);
+            
+            button2.addEventListener('click', function () {
+                //alert("ok");
+
+                var Text = prompt("輸入内容：");
+
+                if (Text !== null && Text !== '') {
+
+                    var secondDiv = document.createElement("div");
+                    secondDiv.setAttribute('id', 'div2');
+
+                    secondDiv.textContent = Text;
+                    firstDiv.innerHTML = '';
+                    firstDiv.appendChild(secondDiv);
+   
+                }
+                
+                
+            });
+
+            document.body.appendChild(firstDiv);
+        });
+
+        //添加圖片
+        var imageButton = document.getElementById('imageButton');
+        
+        imageButton.addEventListener('click', function () {
+            const createImageDiv = document.createElement("div");
+            createImageDiv.classList.add('container');
+            createImageDiv.setAttribute('id', 'imagediv'); 
+            //var imageDiv = document.getElementById('imageDiv');
+
+
+            var fileInput = document.createElement('input');
+            fileInput.type = 'file';
+
+
+            fileInput.addEventListener('change', function (event) {
+                var file = event.target.files[0];
+                if (file) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        var newImage = document.createElement("img");
+                        newImage.src = e.target.result;
+                        // newImage.classList.add('img-fluid');
+                        
+
+
+                        createImageDiv.innerHTML = '';
+                        createImageDiv.appendChild(newImage);
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            fileInput.click();
+            document.body.appendChild(createImageDiv);
+        });
+
+
+
+
+
+
+
+
+
+
+
+        var button = document.getElementById('myButton2');
+        button.addEventListener('click', function () {
+            const div = document.createElement("div");
+            div.classList.add('container');
+
+            const text = "hello world";
+            const divContent = document.createTextNode(text);
+
+            const div2 = document.createElement("div");
+            div2.classList.add('row');
+
+            const div3 = document.createElement("div");
+            const div4 = document.createElement("div");
+            div3.classList.add('col-6');
+            div4.classList.add('col-6');
+
+            div3.appendChild(divContent);
+            div4.appendChild(divContent);
+            div2.appendChild(div3);
+            div2.appendChild(div4);
+            div.appendChild(div2);
+
+            document.body.appendChild(div);
+        });
+
+        //添加輪播圖
+        // var button3 = document.getElementById('carouselButton');
+        // button3.addEventListener('click', function () {
+        //     const carouselDiv = document.createElement("div");
+        //     //carouselDiv.textContent ="HELLO WORLD";
+        //     //carouselDiv.innerHTML="HELLO WORLD";
+
+        //     document.body.appendChild(carouselDiv);
+        //     });
+           
+    </script>
+
+
+</body>
+
+</html>

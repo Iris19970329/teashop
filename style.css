@@ -11,13 +11,12 @@ div{
 }
 
 #div2{
-    /* width: 1200px; */
     height: 390px;
     padding: 5px;
     display: flex;
     align-items: center; 
     justify-content: center; 
-    background-color: blue;
+    background-color: lightblue;
     
 }
 
